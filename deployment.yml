@@ -3,19 +3,19 @@ kind: Deployment
 metadata:
   name: ems
   labels:
-    app: ems-tomcat
+    app: ems-app
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: ems-tomcat
+      app: ems-app
   template:
     metadata:
       labels:
-        app: ems-tomcat
+        app: ems-app
     spec:
       containers:
-      - name: ems-app
+      - name: ems-app-cont
         image: varakumar/ems:latest
         ports:
         - containerPort: 8090
@@ -25,10 +25,10 @@ kind: Service
 metadata:
   name: svc1
   labels:
-      app: ems-tomcat
+      app: ems-app
 spec:
   selector:
-    app: ems-tomcat
+    app: ems-app
   ports:
   - port: 8080
     targetPort: 8080
