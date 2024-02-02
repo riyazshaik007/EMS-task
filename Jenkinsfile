@@ -34,12 +34,12 @@ pipeline {
                     withCredentials([usernamePassword(credentialsId: '3b2bb27e-6776-4832-8f67-4fddfe0f5f26', passwordVariable: 'dockerpass', usernameVariable: 'docker')]) {
                         sh 'docker login -u ${docker} -p ${dockerpass}'
                     }
-                    sh 'sudo usermod -aG docker $USER'
-                    sh 'sudo chown root:docker /var/run/docker.sock'
-                    sh 'sudo chmod 660 /var/run/docker.sock'
+                    // sh 'sudo usermod -aG docker $USER'
+                    // sh 'sudo chown root:docker /var/run/docker.sock'
+                    // sh 'sudo chmod 660 /var/run/docker.sock'
                     sh 'docker build -t varakumar/ems:latest .'
                     sh 'docker push varakumar/ems:latest'
-                    sh 'docker run -d --name EMS -p 8090:8080 varakumar/ems:latest'
+                    // sh 'docker run -d --name EMS -p 8090:8080 varakumar/ems:latest'
                 }            
             }
         }
