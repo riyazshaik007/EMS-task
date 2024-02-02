@@ -31,7 +31,7 @@ pipeline {
         stage("Docker build & push"){
             steps{
                 script{
-                    withCredentials([usernamePassword(credentialsId: '3b2bb27e-6776-4832-8f67-4fddfe0f5f26', passwordVariable: 'dockerpass', usernameVariable: 'docker')]) {
+                    withCredentials([usernamePassword(credentialsId: 'Docker', passwordVariable: 'dockerpass', usernameVariable: 'docker')]) {
                         sh 'docker login -u ${docker} -p ${dockerpass}'
                     }
                     // sh 'sudo usermod -aG docker $USER'
