@@ -46,7 +46,7 @@ pipeline {
         stage("Deploy into EKS"){
             steps{
                 script {
-                    sh 'eksctl create cluster --name ${AWS_CLUSTER} --version 1.23 --region ${AWS_REGION} --nodegroup-name ${AWS_NODE_GRP} --node-type t2.micro --nodes 2 --nodes-min 1 --nodes-max 3 --managed'
+                    sh 'eksctl create cluster --name ${AWS_CLUSTER} --version 1.28 --region ${AWS_REGION} --nodegroup-name ${AWS_NODE_GRP} --node-type t2.micro --nodes 2 --nodes-min 1 --nodes-max 3 --managed'
                     sh 'eksctl utils wait cluster --region ${AWS_REGION} --name ${CLUSTER_NAME} --wait-interval 60s --timeout 15m'
                     sh 'aws eks --region ${AWS_REGION} update-kubeconfig --name ${CLUSTER_NAME}'
                     sh 'kubectl apply -f deployment.yml'
