@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: ems-app-cont
-        image: varakumar/ems:latest
+        image: riyazshaik/ems:latest
         ports:
         - containerPort: 8090
 ---
