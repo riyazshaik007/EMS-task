@@ -45,8 +45,8 @@ pipeline {
                     // sh 'sudo usermod -aG docker $USER'
                     // sh 'sudo chown root:docker /var/run/docker.sock'
                     // sh 'sudo chmod 660 /var/run/docker.sock'
-                    sh 'docker build -t varakumar/ems:latest .'
-                    sh 'docker push varakumar/ems:latest'
+                    sh 'docker build -t riyazshaik007/ems:latest .'
+                    sh 'docker push riyazshaik007/ems:latest'
                     // sh 'docker run -d --name EMS -p 8090:8080 varakumar/ems:latest'
                 }            
             }
